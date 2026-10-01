@@ -53,3 +53,11 @@ jobs:
           docker push ghcr.io/${{ env.OWNER_LOWER }}/spring-petclinic:${{ steps.get_version.outputs.version }}
           docker push ghcr.io/${{ env.OWNER_LOWER }}/spring-petclinic:${{ github.sha }}
           docker push ghcr.io/${{ env.OWNER_LOWER }}/spring-petclinic:latest
+
+
+
+kubectl create secret docker-registry ghcr-secret \
+  --docker-server=ghcr.io \
+  --docker-username=fogang-yann \
+  --docker-password=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 \
+  --dry-run=client -o yaml > ghcr-secret.yaml
